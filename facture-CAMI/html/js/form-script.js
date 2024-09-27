@@ -127,7 +127,7 @@ function genererHTMLFacture(numeroFacture, dateFacture, prefixeMois, mois, annee
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="js/facture-script.js"></script>
-    <button onclick="telechargerPDF()" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">Télécharger PDF</button>
+    <button onclick="telechargerPDF()" class="download-btn">Télécharger PDF</button>
 </body>
 </html>
     `;

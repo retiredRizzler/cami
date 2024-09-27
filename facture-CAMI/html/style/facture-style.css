@@ -121,9 +121,31 @@ th {
     font-weight: bold;
 }
 
+.download-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: var(--secondary-color);
+}
+
 @media print {
     body {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+    }
+
+    .download-btn {
+        display:none
     }
 }
