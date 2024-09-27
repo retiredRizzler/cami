@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture CAMI</title>
+    <link rel="stylesheet" href="facture-style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="company-info">
+            <div class="logo">
+                CAMI SRL
+            </div>
+            <p>
+                Rue des Iris 2, bte 103<br>
+                1640 Rhode-saint-Genèse<br>
+                Belgique
+            </p>
+            <p>
+                Tél : 0477/38.12.81 <br>
+                T.V.A : <span class="highlight">BE 0534.817.715</span><br>
+                Coordonnées bancaires KBC: <span class="highlight">337-310316679-46</span>
+            </p>
+        </div>
+        <div>
+            <h1>FACTURE</h1>
+            <p><strong>N° : </strong><span id="invoice-number" class="highlight">22002</span></p>
+            <p><strong>Date : </strong><span id="invoice-date" class="highlight">28/02/2022</span></p>
+        </div>
+    </div>
+
+    <div class="client-info">
+        <h2>Facturé à :</h2>
+        <p>
+            <strong>ROYALBEL</strong><br>
+            Chaussée de Mons, 457<br>
+            1070, Bruxelles
+        </p>
+        <p>
+            Tél : 02/376.19.11<br>
+            T.V.A : <span class="highlight">BE 0670.923.957</span>
+        </p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Heures</th>
+                <th>Montant hors T.V.A</th>
+                <th>T.V.A 21%</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="description">Prestation du mois de février 2022</td>
+                <td id="hours">-</td>
+                <td id="amount-ht">3146,00 €</td>
+                <td id="amount-tva">660,66 €</td>
+                <td id="amount-total">3806,66 €</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="total">
+        <p>Montant hors T.V.A : <strong id="total-ht">3146,00 €</strong></p>
+        <p>T.V.A (21%) : <strong id="total-tva">660,66 €</strong></p>
+        <h3>Total à payer : <span id="total-ttc" class="highlight">3806,66 €</span></h3>
+    </div>
+
+    <div class="footer">
+        <!-- Informations supplémentaires concernant la société-->
+    </div>
+</div>
+</body>
+</html>
