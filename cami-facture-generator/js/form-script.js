@@ -52,14 +52,14 @@ function genererFacture() {
     const moisAvecApostrophe = ['avril', 'août', 'octobre'];
     const prefixeMois = moisAvecApostrophe.includes(mois.toLowerCase()) ? "d'" : "de ";
 
-    const factureHTML = genererHTMLFacture(numeroFacture, dateFacture, prefixeMois, mois, annee, montantHT, tva, total);
+    const factureHTML = genererHTMLFacture(numeroFacture, dateFacture, prefixeMois, mois, annee, heures, montantHT, tva, total);
 
     const newWindow = window.open();
     newWindow.document.write(factureHTML);
     newWindow.document.close();
 }
 
-function genererHTMLFacture(numeroFacture, dateFacture, prefixeMois, mois, annee, montantHT, tva, total) {
+function genererHTMLFacture(numeroFacture, dateFacture, prefixeMois, mois, annee, heures, montantHT, tva, total) {
     return `
 <!DOCTYPE html>
 <html lang="fr">
@@ -109,7 +109,7 @@ function genererHTMLFacture(numeroFacture, dateFacture, prefixeMois, mois, annee
             </tr>
             <tr>
                 <td>Prestation du mois ${prefixeMois}${mois} ${annee}</td>
-                <td></td>
+                <td>${heures}</td>
                 <td>${montantHT.toFixed(2)} €</td>
                 <td>${tva.toFixed(2)} €</td>
                 <td>${total.toFixed(2)} €</td>
