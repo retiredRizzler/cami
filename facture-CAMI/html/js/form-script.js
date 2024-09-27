@@ -15,13 +15,13 @@ function validateForm() {
     const tarif = document.getElementById('tarif').value;
     const date = document.getElementById('date').value;
 
-    if (heures <= 0) {
-        alert("Le nombre d'heures doit être supérieur à 0.");
+    if (heures <= 0 && heures >= 500) {
+        alert("Le nombre d'heures doit être compris entre 0 et 100.");
         return false;
     }
 
-    if (tarif <= 0) {
-        alert("Le tarif horaire doit être supérieur à 0.");
+    if (tarif <= 0 && tarif >= 100) {
+        alert("Le tarif horaire doit être compris entre 0 et 100.");
         return false;
     }
 
@@ -67,7 +67,7 @@ function genererHTMLFacture(numeroFacture, dateFacture, prefixeMois, mois, annee
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facture CAMI - ${numeroFacture}</title>
-    <link rel="stylesheet" href="facture-style.css">
+    <link rel="stylesheet" href="style/facture-style.css">
 </head>
 <body>
     <div class="container">
@@ -126,7 +126,7 @@ function genererHTMLFacture(numeroFacture, dateFacture, prefixeMois, mois, annee
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="facture-script.js"></script>
+    <script src="js/facture-script.js"></script>
     <button onclick="telechargerPDF()" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">Télécharger PDF</button>
 </body>
 </html>
