@@ -78,7 +78,7 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(134, 197, 223, 0.2);
 }
 
-.btn-primary {
+.btn-generate {
     display: block;
     width: 100%;
     padding: 1rem;
@@ -89,6 +89,19 @@ input:focus {
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 

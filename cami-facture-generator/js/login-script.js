@@ -8,7 +8,8 @@
 
     let loginAttempts = 0;
     const maxLoginAttempts = 5;
-    const lockoutTime = 15 * 60 * 1000; // 15 minutes in milliseconds
+    const lockoutTime = 5 * 60 * 1000; // 15 minutes in milliseconds
+    const sessionDuration = 30 * 60 * 1000; // 30 minutes in milliseconds
 
     function hashPassword(password) {
         return CryptoJS.SHA256(password).toString();
@@ -20,6 +21,11 @@
 
     function handleLogin(e) {
         e.preventDefault();
+
+        // Reset login attempts if they were cleared by a logout
+        if (!localStorage.getItem('loginAttempts')) {
+            loginAttempts = 0;
+        }
 
         if (loginAttempts >= maxLoginAttempts) {
             const remainingTime = Math.ceil((parseInt(localStorage.getItem('lockoutEndTime')) - Date.now()) / 1000);
@@ -35,10 +41,12 @@
             localStorage.removeItem('loginAttempts');
             localStorage.removeItem('lockoutEndTime');
 
-            // Set authentication token
+            // Set authentication token and expiration time
             const authToken = CryptoJS.SHA256(Date.now().toString()).toString();
+            const expirationTime = Date.now() + sessionDuration;
             localStorage.setItem('authToken', authToken);
-            
+            localStorage.setItem('authExpiration', expirationTime);
+           
             window.location.href = 'form.html';
         } else {
             // Failed login
@@ -78,6 +86,21 @@
         }
     }
 
+    function checkSession() {
+        const authToken = localStorage.getItem('authToken');
+        const authExpiration = parseInt(localStorage.getItem('authExpiration')) || 0;
+
+        if (authToken && authExpiration > Date.now()) {
+            // Session is still valid, redirect to form.html
+            window.location.href = 'form.html';
+        } else {
+            // Session has expired or doesn't exist, remove authentication data
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('authExpiration');
+        }
+    }
+
     // Initial check
+    checkSession();
     checkLockout();
 })();
