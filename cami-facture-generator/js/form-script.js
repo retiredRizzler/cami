@@ -109,7 +109,7 @@ function genererHTMLFacture(numeroFacture, dateFacture, prefixeMois, mois, annee
             </tr>
             <tr>
                 <td>Prestation du mois ${prefixeMois}${mois} ${annee}</td>
-                <td>${heures}</td>
+                <td></td>
                 <td>${montantHT.toFixed(2)} €</td>
                 <td>${tva.toFixed(2)} €</td>
                 <td>${total.toFixed(2)} €</td>
